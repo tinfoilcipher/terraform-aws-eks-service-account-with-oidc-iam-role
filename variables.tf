@@ -1,5 +1,5 @@
 variable "service_account_name" {
-    description = "Service Account Name"
+    description = "Name of Kubernetes Service Account"
     type        = string
 }
 
@@ -9,8 +9,9 @@ variable "iam_policy_arns" {
 }
 
 variable "kubernetes_namespace" {
-    description = "Kubernetes Namespace where Service Account is running"
+    description = "Kubernetes Namespace where Service Account will be created"
     type        = string
+    default     = ""
 }
 
 variable "enabled_sts_services" {
