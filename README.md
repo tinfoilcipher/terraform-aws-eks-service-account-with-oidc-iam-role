@@ -14,7 +14,8 @@ terraform apply
 
 ```
 module "tinfoil_sa" {
-    source                      = "github.com/tinfoilcipher/terraform-aws-eks-oidc-service-account"
+    source                      = "tinfoilcipher/eks-service-account-with-oidc-iam-role/aws"
+    version                     = "x.x.x"
     service_account_name        = "my-service-account"
     iam_policy_arns             = ["arn:aws:iam::aws:policy/AmazonS3FullAccess", "arn:aws:iam::123456789012:policy/custom-policy"]
     kubernetes_namespace        = "some-namespace"
@@ -28,7 +29,8 @@ module "tinfoil_sa" {
 
 ```
 module "tinfoil_sa" {
-    source                      = "github.com/tinfoilcipher/terraform-aws-eks-oidc-service-account"
+    source                      = "tinfoilcipher/eks-service-account-with-oidc-iam-role/aws"
+    version                     = "x.x.x"
     service_account_name        = "tinfoil-sa"
     iam_policy_arns             = ["arn:aws:iam::668264849718:policy/tinfoil-limited-access"]
     kubernetes_namespace        = "tinfoil"
