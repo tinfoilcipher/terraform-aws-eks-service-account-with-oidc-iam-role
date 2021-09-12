@@ -1,7 +1,12 @@
-# terraform-aws-eks-service-account-with-oidc-iam-role
+# Terraform Module - EKS Service Account With OIDC-Integrated IAM Role
+
 Terraform Module to create an EKS Kubernetes Service Account, bound to a related IAM Role via an IAM Policy Document.
 
 Allows for attaching any number of IAM policies and allowing any AWS Service via it's named prefix I.E ec2, rds, s3.
+
+Intended as a Terraform-native solution to replace the solution offered by **eksctl** and **aws cli** as outlined in the AWS Docs [here](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
+
+See the blog post [here](https://www.tinfoilcipher.co.uk/2021/09/12/eks-configuring-iam-roles-for-service-accounts-using-terraform/) for an in-depth breakdown.
 
 ## tl;dr
 
@@ -10,7 +15,7 @@ terraform init
 terraform apply
 ```
 
-## Create IAM Role Componenets and Kubernetes Service Account
+### Create IAM Role Componenets and Kubernetes Service Account
 
 ```
 module "tinfoil_sa" {
@@ -25,7 +30,7 @@ module "tinfoil_sa" {
 }
 ```
 
-## Create IAM Role Componenets Only
+### Create IAM Role Componenets Only
 
 ```
 module "tinfoil_sa" {
