@@ -22,14 +22,14 @@ data "aws_iam_policy_document" "this" {
         effect = "Allow"    
         condition {
             test = "StringEquals"
-            variable = "${var.openid_connect_provider_url}:sub"
+            variable = "${replace(var.openid_connect_provider_url, "https://", "")}:sub"
             values = [
                 "system:serviceaccount:${var.kubernetes_namespace}:${var.service_account_name}"
             ]
         }
         condition {
             test = "StringEquals"
-            variable = "${var.openid_connect_provider_url}:aud"
+            variable = "${replace(var.openid_connect_provider_url, "https://", "")}:aud"
             values = [
                 "sts.amazonaws.com"
             ]
